@@ -1,6 +1,6 @@
 # Learning<br />JavaScript
 
-````
+```
 1. CHAPTER3 리터널과 변수, 상수, 데이터타입
 2. CHAPTER4 제어문
 3. CHAPTER5 표현식과 연산자
@@ -18,6 +18,3 @@
 15. CHAPTER16 정규표현식
 
 ```
-
-
-``` This is a normal paragraph: This is a code block. end code block. ```
