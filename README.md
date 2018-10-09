@@ -17,4 +17,3 @@
 14. CHAPTER16 Math
 15. CHAPTER16 정규표현식
 ```
-![screenshot](./img/lrg.jpg)
