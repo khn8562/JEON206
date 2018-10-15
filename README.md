@@ -1,10 +1,10 @@
 # Learning<br />JavaScript
 
 ```
-1. CHAPTER3 리터널과 변수, 상수, 데이터타입
-2. CHAPTER4 제어문
-3. CHAPTER5 표현식과 연산자
-4. CHAPTER6 함수
+1. CHAPTER3 리터널과 변수, 상수, 데이터타입 (전정호 10/20)
+2. CHAPTER4 제어문 (김연호 10/20)
+3. CHAPTER5 표현식과 연산자 (김지 10/27)
+4. CHAPTER6 함수 (이상미 10/27)
 5. CHAPTER7 스코프
 6. CHAPTER8 배열과 배열 처리
 7. CHAPTER9 객체와 객체지향 프로그래밍
