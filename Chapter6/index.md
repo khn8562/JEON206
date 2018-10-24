@@ -240,6 +240,7 @@ f를 호출하면 둘은 같은 객체를 가리키지만, f 내부에서 o에 �
 ## 6.5 this 키워드
 - 함수 바디 안에서의 this는 일반적으로 객체의 프로퍼티인 함수에서 의미가 있습니다.
 - 메서드를 호출하면 this는 호출한 메서드를 소유하는 객체가 됩니다.
+- 중첩된 함수 안에서 this를 사용하면 의도한 대로 동작하지 않아 다른 변수 self나 taht에 this를  할당해서 사용하는 경우가 많은데, 화살표 함수를 써도 이 문제를 해결할 수 있습니다.
 ```
     const o = {
         name: 'Wallace',    //원시 값 프로퍼티
@@ -256,7 +257,56 @@ this는 함수를 어떻게 선언했느냐 보다 어떻게 호출했느냐에 
 
 > this 키워드는 수행되는 영역, 호출자 두 가지 조건에 의해 값이 결정 되는데 쉽게 생각해서 호출 함수 앞에 점(.)이 있다면 그 점(.)앞의 객체를 의미한다고 생각 하면 쉽습니다.
 
+* 중첩함수에서 this 키워드 사용
+```
+    const o = {
+        name: 'Julie',
+        greetBackwards: function() {
+            const self = this;
+            function getReverseName() {
+                let nameBackWards = '';
+                for(let i=self.name.length-1;i>=0;i--) {
+                    nameBackWards += self.name[i];
+                }
+                return nameBackWards;
+            }
+            return `${getReverseName()} si eman ym ,olleH`;
+        },
+    };
+    o.greetBackwards();
+```
+
 ## 6.6 함수 표현식과 익명 함수
+- 익명 함수에는 식별자가 주어지지 않습니다.
+- 익명 함수를 호출하는 방법에는 함수 표현식이 있습니다.
+- 함수 표현식은 익명 함수를 할당할 수도 있고, 이름 있는 함수를 할당 할 수도 있습니다.
+- 나중에 호출할 생각으로 함수를 만든다면 함수 선언을 사용하고, 
+- 다른 곳에 할당하거나 다른 함수에 넘길 목적으로 함수를 만든다면 함수 표현식을 사용하면 됩니다.
+
+
+* 함수 표현식
+```
+    const f = function() {
+        //...
+    }
+
+    const g = function f() {
+        //...
+    }
+```
+위 예제처럼 g에 f함수를 할당한 경우 함수에 접근 할때는 g를 써서 호출하고 함수 안에서 자신을 호출할 때(재귀) f를 써서 자기 자신을 참조 합니다.
+```
+    const g = function f(stop) {
+        if(stop) {
+            console.log('f stopped');
+        } else {
+            console.log(stop);
+            f(true);
+        }
+    };
+    g(false);
+```
+
 ## 6.7 화살표 표기법
 ## 6.8 call과 apply, bind
 ## 요약
